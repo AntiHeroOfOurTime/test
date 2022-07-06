@@ -1,0 +1,5 @@
+export * from './header'
+export * from './faq'
+export * from './news'
+export * from './documents'
+export * from './register'

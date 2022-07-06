@@ -1,0 +1,5 @@
+export * from 'photo1.png'
+export * from 'photo2.png'
+export * from 'photo3.png'
+export * from 'photo4.png'
+export * from 'photo5.png'
