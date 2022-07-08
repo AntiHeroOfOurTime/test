@@ -17,7 +17,7 @@ export const BlockNews = ({title, img, description, date}:IProps) => {
             <div className={'flex flex-col gap-[12px]'}>
                 <h4 className={'font-semibold text-[18px]'}>{title}</h4>
                 <div className={'flex gap-[13px] text-textSecond'}>
-                    <CalendarIcon className={'w-[18px] h-[19px]'}/>
+                    <CalendarIcon fill={'grey'} className={'w-[18px] h-[19px]'}/>
                     <span>{date}</span>
                 </div>
                 <span className={'text-[16px] text-textMainGrey'}>{description}</span>

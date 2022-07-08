@@ -1,8 +1,10 @@
-import React, {DetailedHTMLProps, HTMLAttributes} from 'react';
-interface IProps extends DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
+import React, {ButtonHTMLAttributes} from 'react';
+
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     label:string;
     color?:'main'|'light'|'overLight';
     ghost?:boolean;
+
 
 }
 

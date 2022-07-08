@@ -1,2 +1,6 @@
 export * from './auth.interface'
-export * from './table.interface'
+export * from './document.interface'
+export * from './userData.interface'
+export * from './register.interface'
+export * from './news.interface'
+export * from './faq.interface'

@@ -1,89 +1,17 @@
 import React from 'react'
 import {ColumnDef, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
-import {ReactComponent as ContentIcon} from "../../../assets/content.svg";
-import {ReactComponent as DownloadIcon} from "../../../assets/download.svg";
 import {IDocument} from "../../../interface";
 
 
-
-const defaultData: IDocument[] = [
-    {
-        category: 'Общие документы',
-        name: `Постановление Правительства Российской 
-            "Федерации от 20.07.2021 О внесении 
-            "изменений в постановление Правительства 
-            "Российской Федерации от 16 ноября 2015 г. 
-            "№ 1236`,
-        date: "20.07.2021",
-        number: "1226",
-        content: "Скачать (469 Кб)",
-    },
-    {
-        category: 'Общие документы',
-        name: `Приказ №486 от 22.09.2020 Об утверждении 
-               классификатора программ для электронных 
-               вычислительных машин и баз данных`,
-        date: "22.09.2020",
-        number: "468",
-        content: "Скачать (10.81 Мб)",
-    },
-    {
-        category: 'Общие документы',
-        name: `Административный регламент ПРИКАЗ от 21 февраля 2019 года N62`,
-        date: "21.02.2019",
-        number: "62",
-        content: "Скачать (2.25 Мб)",
-    }, {
-        category: 'Общие документы',
-        name: `Постановление Правительства РФ от 20.12.2017 № 1594 "О внесении изменений в постановление Правительства Российской Федерации от 16 ноября 2015 г. № 1236"`,
-        date: "20.12.2017",
-        number: "1594",
-        content: "Скачать (2.07 Мб)",
-    }, {
-        category: 'Общие документы',
-        name: `Об утверждении правил применения классификатора программ для электронных вычислительных машин и баз данных`,
-        date: "31.12.2015",
-        number: "622",
-        content: "Скачать (4.69 Мб)",
-    },
-]
-const columns: ColumnDef<IDocument>[] = [
-    {
-        accessorFn: row => row.category,
-        id: '1',
-        cell: info => info.getValue(),
-        header: () =><span>Категория</span>,
-
-    }, {
-        accessorFn: row => row.name,
-        id: '2',
-        cell: info => info.getValue(),
-        header: () =><span>Наименование</span>,
-
-    }, {
-        accessorFn: row => row.date,
-        id: '3',
-        cell: info => info.getValue(),
-        header: () => <span>Дата</span>,
-    }, {
-        accessorFn: row => row.number,
-        id: '4',
-        cell: info => info.getValue(),
-        header: () => <span>Номер</span>,
-    }, {
-        accessorFn: row => row.content,
-        id: '5',
-        cell: (info) => <div className={'flex gap-[15px] text-main items-center'}><DownloadIcon/><span>{info.getValue()}</span> </div>,
-        header: () =><div className={'flex gap-[10px]'}>
-            <ContentIcon/>
-            <span>Содержание</span>
-        </div>
-    },
-]
+interface IProps{
+    data:IDocument[],
+    columns:ColumnDef<IDocument>[]
+}
 
 
-export const DocumentsTable=()=> {
-    const [data, setData] = React.useState(() => [...defaultData])
+
+
+export const DocumentsTable=({data,columns}:IProps)=> {
     const table = useReactTable({
         data,
         columns,

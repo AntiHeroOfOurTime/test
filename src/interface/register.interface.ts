@@ -6,11 +6,3 @@ export interface ISoftWare {
     time_register: string
     addressWebSite: string
 }
-
-export interface IDocument {
-    category: string
-    name: string
-    date: string
-    number: string
-    content: string
-}

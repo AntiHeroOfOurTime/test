@@ -1,130 +1,14 @@
 import React from 'react'
 import {ColumnDef, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
-import {ReactComponent as ReverseIcon} from "../../../assets/reverse.svg";
 import {ISoftWare} from "../../../interface";
 
 
-const data: ISoftWare[] = [
-    {
-        id: '1',
-        name: 'Система управления базами данных «Ред База Данных»',
-        codeOfClass: '02.09',
-        classSoftWare: 'Системы управления базами данных',
-        time_register: ' 29.01.2016 ',
-        addressWebSite: '/asdasd/',
-    },
-    {
-        id: '2',
-        name: '1С:Школа. Информатика, 11 класс',
-        codeOfClass: '04.11',
-        classSoftWare: 'Системы управления процессами организации',
-        time_register: ' 29.01.2016 ',
-        addressWebSite: '/asdasd/',
-    },
-    {
-        id: '3',
-        name: '1С:Школа. Русский язык, 5–6 класс. Лексикология ',
-        codeOfClass: '04.11',
-        classSoftWare: 'Информационные системы для решения специфических отраслевых задач',
-        time_register: ' 29.01.2016 ',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '4',
-        name: '1С:Комплексная автоматизация 8',
-        codeOfClass: '04.11',
-        classSoftWare: 'Системы управления процессами организации',
-        time_register: ' 20.02.2016 ',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '5',
-        name: 'Электронный периодический справочник "Система ГАРАНТ"',
-        codeOfClass: '04.15',
-        classSoftWare: 'Прикладное программное обеспечение общего назначения',
-        time_register: ' 20.02.2016 ',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '6',
-        name: 'Система электронного документооборота и автоматизации бизнес-процессов «Е1 Евфрат»',
-        codeOfClass: '04.13',
-        classSoftWare: ' Системы сбора, хранения, обработки, анализа, моделирования и визуализации массивов данных ',
-        time_register: ' 11.03.2016',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '7',
-        name: 'ABBYY Lingvo',
-        codeOfClass: '04.07',
-        classSoftWare: 'Лингвистическое программное обеспечение',
-        time_register: ' 11.03.2016 ',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '8',
-        name: '1С-Битрикс24 (Компания)',
-        codeOfClass: '04.03',
-        classSoftWare: 'Офисные приложения',
-        time_register: ' 14.03.2016 ',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '9',
-        name: '1С-Битрикс24 (Проект+)',
-        codeOfClass: '04.03',
-        classSoftWare: 'Системы управления проектами, исследованиями, разработкой, проектированием и внедрением',
-        time_register: ' 14.03.2016 ',
-        addressWebSite: '/asdasd/',
-    }, {
-        id: '10',
-        name: '1С-Битрикс24 (Команда)',
-        codeOfClass: '04.03',
-        classSoftWare: 'Системы сбора, хранения, обработки, анализа, моделирования и визуализации массивов данных',
-        time_register: ' 14.03.2016 ',
-        addressWebSite: '/asdasd/',
-    },
-]
+interface IProps {
+    data:ISoftWare[]
+    columns: ColumnDef<ISoftWare>[],
+}
 
-
-const columns: ColumnDef<ISoftWare>[] = [
-    {
-        accessorFn: row => row.id,
-        id: '1',
-        cell: info => '#' + info.getValue(),
-        header: () => <div className={'flex flex-row gap-[15px] items-center'}>
-            <ReverseIcon />
-            <span>Регистроционный номер</span>
-        </div>,
-
-    },{
-        accessorFn: row => row.name,
-        id: '2',
-        cell: info => info.getValue(),
-        header: () =><div className={'flex flex-row gap-[15px] items-center'}>
-            <ReverseIcon />
-            <span>Наименование программного обеспечения</span>
-        </div> ,
-    },{
-        accessorFn: row => row.codeOfClass,
-        id: '3',
-        cell: info => info.getValue(),
-        header: () => <span>Код класса</span>,
-    },{
-        accessorFn: row => row.classSoftWare,
-        id: '4',
-        cell: info => info.getValue(),
-        header: () => <span>Класс программного обеспечения</span>,
-    },{
-        accessorFn: row => row.time_register,
-        id: '5',
-        cell: info => info.getValue(),
-        header: () => <span>Дата регистрации</span>,
-
-    },{
-        accessorFn: row => row.addressWebSite,
-        id: '6',
-        cell: info => <a className={'text-main underline'} href={info.getValue()}>{info.getValue()}</a>,
-        header: () => <span>Адрес сайта</span>,
-    },
-]
-
-
-export const RegisterTable=()=>{
+export const RegisterTable=({data,columns}:IProps)=>{
 
 
     const table = useReactTable({
